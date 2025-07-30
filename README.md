@@ -1,6 +1,6 @@
 # Classement Tournoi - Application React
 
-Ce projet est une application web réalisée en **React** avec **TailwindCSS**. Elle affiche un **classement dynamique** provenant d’un **Google Sheet public**, avec plusieurs feuilles sélectionnables, des effets d’animation, un système de recherche, et une interface responsive.
+Ce projet est une application web réalisée en **React** avec **TailwindCSS**. Elle affiche un **classement dynamique** provenant d’un [**Google Sheet public**](https://docs.google.com/spreadsheets/d/1l1qBCg3_K3kUaOC_7il6_pzrH_wm_Wj4CaSxsNGQsfk/edit?usp=sharing), avec plusieurs feuilles sélectionnables, des effets d’animation, un système de recherche, et une interface responsive.
 
 Le but est d'afficher aisément les scores pour les tournois d'**HOD**
 
