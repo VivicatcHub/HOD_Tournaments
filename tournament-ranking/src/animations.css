@@ -1,0 +1,65 @@
+@keyframes enchant {
+  0%,
+  74.9% {
+    filter: none;
+    color: black;
+    text-shadow: none;
+  }
+  75% {
+    filter: hue-rotate(0deg) brightness(1.3);
+    color: #ffadad; /* pastel red */
+    text-shadow: 0 0 6px #ffadad, 0 0 10px #ff0000;
+  }
+  80% {
+    filter: hue-rotate(60deg) brightness(1.3);
+    color: #ffd6a5; /* pastel orange */
+    text-shadow: 0 0 6px #ffd6a5, 0 0 10px #ff9500;
+  }
+  85% {
+    filter: hue-rotate(120deg) brightness(1.3);
+    color: #fdffb6; /* pastel yellow */
+    text-shadow: 0 0 6px #fdffb6, 0 0 10px #ffff00;
+  }
+  90% {
+    filter: hue-rotate(180deg) brightness(1.3);
+    color: #caffbf; /* pastel green */
+    text-shadow: 0 0 6px #caffbf, 0 0 10px #00ff00;
+  }
+  95% {
+    filter: hue-rotate(240deg) brightness(1.3);
+    color: #9bf6ff; /* pastel blue */
+    text-shadow: 0 0 6px #9bf6ff, 0 0 10px #00ffff;
+  }
+  100% {
+    filter: none;
+    color: black;
+    text-shadow: none;
+  }
+}
+
+@keyframes dance {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(3px);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
+  75% {
+    transform: translateX(3px);
+  }
+}
+
+.enchanted-text {
+  animation: enchant 10s linear infinite;
+  color: black;
+  position: relative;
+}
+
+.dancing-row {
+  animation: dance 1.5s ease-in-out infinite;
+  position: relative;
+}
