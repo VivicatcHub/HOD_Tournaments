@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/HOD_Tournaments/static/css/main.47f113d0.css",
-    "main.js": "/HOD_Tournaments/static/js/main.41257e2c.js",
+    "main.css": "/HOD_Tournaments/static/css/main.e75ea4d6.css",
+    "main.js": "/HOD_Tournaments/static/js/main.9f2490a9.js",
     "index.html": "/HOD_Tournaments/index.html",
-    "main.47f113d0.css.map": "/HOD_Tournaments/static/css/main.47f113d0.css.map",
-    "main.41257e2c.js.map": "/HOD_Tournaments/static/js/main.41257e2c.js.map"
+    "main.e75ea4d6.css.map": "/HOD_Tournaments/static/css/main.e75ea4d6.css.map",
+    "main.9f2490a9.js.map": "/HOD_Tournaments/static/js/main.9f2490a9.js.map"
   },
   "entrypoints": [
-    "static/css/main.47f113d0.css",
-    "static/js/main.41257e2c.js"
+    "static/css/main.e75ea4d6.css",
+    "static/js/main.9f2490a9.js"
   ]
 }
