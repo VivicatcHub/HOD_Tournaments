@@ -2,16 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap");
+
+* {
+  @apply transition-colors duration-200;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @apply bg-gradient-to-br from-slate-50 to-slate-100;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+/* Custom HOD Styles */
+:root {
+  --hod-purple: #7c3aed;
+  --hod-purple-dark: #6d28d9;
+  --hod-purple-light: #a78bfa;
+  --hod-accent: #ec4899;
+}
+
+.hod-header {
+  @apply bg-gradient-to-r from-violet-600 to-violet-700 shadow-lg;
+}
+
+.hod-title {
+  @apply font-poppins font-bold text-4xl bg-gradient-to-r from-white to-violet-100 bg-clip-text text-transparent;
+}
+
+.hod-input {
+  @apply border-2 border-violet-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 rounded-lg px-4 py-2 transition-all duration-200;
+}
+
+.hod-select {
+  @apply border-2 border-violet-200 focus:border-violet-500 focus:ring-2 focus:ring-violet-200 rounded-lg px-4 py-2 bg-white cursor-pointer transition-all duration-200;
+}
+
+.hod-table-header {
+  @apply bg-gradient-to-r from-violet-500 to-violet-600 text-white font-semibold sticky top-0 z-10;
+}
+
+.hod-table-row {
+  @apply border-b border-violet-100 hover:bg-violet-50 transition-colors duration-150;
+}
+
+.hod-table-row-highlight {
+  @apply bg-gradient-to-r from-yellow-100 to-amber-50 border-l-4 border-yellow-400 font-bold shadow-sm;
+}
+
+.hod-table-medal {
+  @apply text-2xl;
+}
+
+.hod-badge {
+  @apply px-3 py-1 rounded-full text-sm font-semibold;
+}
+
+.hod-badge-top {
+  @apply bg-gradient-to-r from-yellow-100 to-amber-100 text-amber-900 border border-amber-300;
+}
+
+.hod-btn {
+  @apply px-4 py-2 rounded-lg font-semibold transition-all duration-200 hover:shadow-lg;
+}
+
+.hod-btn-primary {
+  @apply bg-gradient-to-r from-violet-600 to-violet-700 text-white hover:from-violet-700 hover:to-violet-800;
+}
+
+.hod-footer-accent {
+  @apply text-violet-600 font-bold;
 }
