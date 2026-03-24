@@ -9,15 +9,15 @@ interface RowProps {
 }
 
 function Row({ enchanted, index, value }: RowProps) {
-  const classNames = `relative border px-4 py-2 z-7 ${enchanted ? "enchanted-text" : ""}`;
+  const classNames = `relative z-7 text-xs sm:text-base lg:text-xl ${enchanted ? "enchanted-text" : ""}`;
 
   return (
-    <td
+    <div
       className={classNames}
       style={enchanted ? { animationDelay: `${index * 0.05}s` } : undefined}
     >
       {value}
-    </td>
+    </div>
   );
 }
 

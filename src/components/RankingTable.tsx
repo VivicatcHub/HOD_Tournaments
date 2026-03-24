@@ -8,6 +8,7 @@ interface RankingTableProps {
   highlightIndex: number | null;
   ascending: boolean;
   columnNames?: [string, string];
+  showExtraColumns?: boolean;
 }
 
 export default function RankingTable({
@@ -15,6 +16,7 @@ export default function RankingTable({
   highlightIndex,
   ascending,
   columnNames = ["Nom", "Score"],
+  showExtraColumns = false,
 }: RankingTableProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const rowRef = useRef<HTMLTableRowElement>(null);
@@ -88,18 +90,33 @@ export default function RankingTable({
     <div className="w-full max-w-4xl mx-auto relative">
       <div
         ref={containerRef}
-        className="relative h-[600px] overflow-y-auto overflow-x-hidden border-2 border-violet-300 rounded-2xl bg-white shadow-hod-md backdrop-blur-sm"
+        className="relative h-[600px] overflow-y-auto overflow-x-auto border-2 border-violet-300 rounded-2xl bg-white shadow-hod-md backdrop-blur-sm"
       >
-        <table className="w-full table-auto border-collapse">
+        <table className="w-full table-auto border-collapse min-w-max">
           <thead className="hod-table-header sticky top-0 z-20">
             <tr>
               <th className="px-4 py-3 text-center font-poppins">🏆</th>
-              <th className="px-4 py-3 text-left font-poppins">
+              <th className="px-4 py-3 text-center font-poppins text-xs sm:text-base lg:text-xl">
                 {columnNames[0]}
               </th>
-              <th className="px-4 py-3 text-center font-poppins">
+              <th className="px-4 py-3 text-center font-poppins text-xs sm:text-base lg:text-xl">
                 {columnNames[1]}
               </th>
+              {/* Render additional columns if present in data */}
+              {data && data.length > 0
+                ? Object.keys(data[0])
+                    .filter((k) => k !== columnNames[0] && k !== columnNames[1])
+                    .map((extra) => (
+                      <th
+                        key={extra}
+                        className={`px-4 py-3 text-center font-poppins text-xs sm:text-base lg:text-xl ${
+                          showExtraColumns ? "" : "hidden"
+                        }`}
+                      >
+                        {extra}
+                      </th>
+                    ))
+                : null}
             </tr>
           </thead>
           <tbody>
@@ -125,10 +142,10 @@ export default function RankingTable({
                       : undefined
                   }
                 >
-                  <td className="px-4 py-3 text-center hod-table-medal">
+                  <td className="px-4 py-3 text-center hod-table-medal text-xs sm:text-base lg:text-xl">
                     <RowPlace enchanted={enchanted} index={index} />
                   </td>
-                  <td className="px-4 py-3 text-left font-medium">
+                  <td className="px-4 py-3 text-center font-medium text-xs sm:text-base lg:text-xl">
                     <RowName
                       enchanted={enchanted}
                       index={index}
@@ -136,7 +153,7 @@ export default function RankingTable({
                       value={row[columnNames[0]]}
                     />
                   </td>
-                  <td className="px-4 py-3 text-center font-semibold text-violet-700">
+                  <td className="px-4 py-3 text-center font-semibold text-violet-700 text-xs sm:text-base lg:text-xl">
                     <RowScore
                       enchanted={enchanted}
                       index={index}
@@ -144,6 +161,26 @@ export default function RankingTable({
                       value={row[columnNames[1]]}
                     />
                   </td>
+                  {data && data.length > 0
+                    ? Object.keys(row)
+                        .filter(
+                          (k) => k !== columnNames[0] && k !== columnNames[1],
+                        )
+                        .map(
+                          (extra) =>
+                            showExtraColumns && (
+                              <td className="px-4 py-3 text-center font-semibold text-violet-700 text-xs sm:text-base lg:text-xl">
+                                <RowScore
+                                  key={`${index}-${extra}`}
+                                  enchanted={enchanted}
+                                  index={index}
+                                  row={row}
+                                  value={row[extra]}
+                                />
+                              </td>
+                            ),
+                        )
+                    : null}
                 </tr>
               );
             })}
