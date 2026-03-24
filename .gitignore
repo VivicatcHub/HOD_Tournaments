@@ -10,7 +10,6 @@ yarn-error.log*
 pnpm-debug.log*
 
 # Build outputs (don't commit build artifacts)
-build/
 dist/
 *.tsbuildinfo
 
